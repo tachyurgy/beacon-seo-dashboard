@@ -1,0 +1,158 @@
+// Illustrative demo data for Beacon. NOT live — bundled samples for portfolio demo.
+// Three distinct sites, each with its own full dataset so switching changes every number.
+
+export const SITES = [
+  {
+    id: "northpeak",
+    url: "northpeak-outfitters.com",
+    label: "North Peak Outfitters",
+    type: "Ecommerce",
+    scores: { performance: 62, seo: 88, accessibility: 79, bestPractices: 92 },
+    vitals: { lcp: 3.4, inp: 248, cls: 0.06 },
+    seoChecklist: [
+      { name: "Title tag", status: "pass", detail: "58 chars — within the optimal 50–60 range." },
+      { name: "Meta description", status: "pass", detail: "152 chars, includes the primary keyword." },
+      { name: "Single H1", status: "pass", detail: "Exactly one <h1> found on the page." },
+      { name: "Image alt coverage", status: "warn", detail: "41 of 56 product images have alt text (73%)." },
+      { name: "Canonical tag", status: "pass", detail: "Self-referencing canonical present." },
+      { name: "Robots & sitemap", status: "pass", detail: "robots.txt references sitemap.xml (1,204 URLs)." },
+      { name: "Structured data", status: "pass", detail: "Product + Offer + BreadcrumbList schema detected." },
+      { name: "Open Graph tags", status: "pass", detail: "og:title, og:image, og:description all present." },
+      { name: "HTTPS", status: "pass", detail: "Valid TLS, HSTS enabled, no mixed content." },
+      { name: "Mobile-friendly", status: "warn", detail: "Tap targets on filters are below 48px." },
+    ],
+    keywords: [
+      { keyword: "waterproof hiking boots", position: 4, change: 2, volume: 27100, url: "/collections/hiking-boots" },
+      { keyword: "insulated down jacket", position: 7, change: -1, volume: 18200, url: "/collections/jackets" },
+      { keyword: "ultralight backpacking tent", position: 11, change: 5, volume: 9900, url: "/products/cirrus-2p" },
+      { keyword: "merino base layers", position: 3, change: 0, volume: 8100, url: "/collections/base-layers" },
+      { keyword: "trail running shoes mens", position: 14, change: -3, volume: 14800, url: "/collections/trail-running" },
+      { keyword: "camping cookware set", position: 9, change: 1, volume: 6600, url: "/products/summit-mess-kit" },
+      { keyword: "down sleeping bag 0 degree", position: 6, change: 4, volume: 5400, url: "/products/glacier-0" },
+      { keyword: "rain shell jacket", position: 19, change: 2, volume: 12100, url: "/collections/shells" },
+      { keyword: "hiking daypack 30l", position: 8, change: -2, volume: 4400, url: "/products/ridgeline-30" },
+      { keyword: "wool hiking socks", position: 5, change: 1, volume: 3600, url: "/collections/socks" },
+    ],
+    issues: [
+      { severity: "critical", title: "Largest Contentful Paint is 3.4s", impact: "Hero image is unoptimized (1.8 MB PNG). Serving WebP and preloading it could cut LCP below the 2.5s 'good' threshold." },
+      { severity: "warning", title: "15 product images missing alt text", impact: "Hurts accessibility and image-search visibility on a catalog driven by visual discovery." },
+      { severity: "warning", title: "Render-blocking third-party scripts", impact: "Two marketing tags block the main thread for ~420ms. Defer or load them post-interaction." },
+      { severity: "info", title: "Tap targets too small on mobile filters", impact: "Filter chips render at 36px; Google recommends ≥48px for comfortable mobile tapping." },
+      { severity: "info", title: "No 0-degree sleeping bag in sitemap", impact: "A high-converting product URL is not listed in sitemap.xml, slowing discovery." },
+    ],
+  },
+  {
+    id: "ledgerflow",
+    url: "ledgerflow.io",
+    label: "LedgerFlow",
+    type: "SaaS",
+    scores: { performance: 91, seo: 73, accessibility: 95, bestPractices: 100 },
+    vitals: { lcp: 1.8, inp: 96, cls: 0.02 },
+    seoChecklist: [
+      { name: "Title tag", status: "pass", detail: "54 chars, brand + value proposition." },
+      { name: "Meta description", status: "fail", detail: "Missing on /pricing and /integrations." },
+      { name: "Single H1", status: "pass", detail: "One <h1> per route across the marketing site." },
+      { name: "Image alt coverage", status: "pass", detail: "All 12 marketing images have descriptive alt text." },
+      { name: "Canonical tag", status: "warn", detail: "Canonical on /blog points to a paginated duplicate." },
+      { name: "Robots & sitemap", status: "pass", detail: "sitemap.xml is fresh (updated 2 days ago)." },
+      { name: "Structured data", status: "fail", detail: "No Organization or SoftwareApplication schema found." },
+      { name: "Open Graph tags", status: "pass", detail: "Full OG + Twitter card metadata present." },
+      { name: "HTTPS", status: "pass", detail: "Valid TLS, modern ciphers, HSTS preloaded." },
+      { name: "Mobile-friendly", status: "pass", detail: "Responsive layout, no viewport issues." },
+    ],
+    keywords: [
+      { keyword: "automated invoice reconciliation", position: 2, change: 3, volume: 4400, url: "/features/reconciliation" },
+      { keyword: "accounts payable automation software", position: 6, change: 1, volume: 8100, url: "/" },
+      { keyword: "cash flow forecasting tool", position: 9, change: -2, volume: 6600, url: "/features/forecasting" },
+      { keyword: "quickbooks alternative", position: 22, change: 4, volume: 33100, url: "/compare/quickbooks" },
+      { keyword: "expense management api", position: 5, change: 0, volume: 2900, url: "/developers" },
+      { keyword: "saas billing platform", position: 13, change: -4, volume: 5400, url: "/features/billing" },
+      { keyword: "bank feed integration", position: 7, change: 2, volume: 1900, url: "/integrations" },
+      { keyword: "financial close software", position: 4, change: 6, volume: 3600, url: "/features/close" },
+      { keyword: "spend management for startups", position: 11, change: 1, volume: 2400, url: "/solutions/startups" },
+      { keyword: "double entry accounting api", position: 3, change: 0, volume: 880, url: "/developers/ledger" },
+    ],
+    issues: [
+      { severity: "critical", title: "Missing meta descriptions on key pages", impact: "/pricing and /integrations have no meta description, so Google generates one — costing CTR on high-intent queries." },
+      { severity: "warning", title: "No structured data markup", impact: "Adding Organization + SoftwareApplication schema unlocks rich results and sitelinks for branded searches." },
+      { severity: "warning", title: "Canonical points to paginated duplicate", impact: "Blog canonical loops to /blog?page=2, fragmenting link equity across paginated archives." },
+      { severity: "info", title: "Thin content on comparison pages", impact: "/compare/quickbooks ranks #22 with 280 words; competitors average 1,400+. Expand to capture this 33k-volume term." },
+    ],
+  },
+  {
+    id: "brightleaf",
+    url: "brightleaf-dental.com",
+    label: "Brightleaf Dental",
+    type: "Local business",
+    scores: { performance: 48, seo: 64, accessibility: 71, bestPractices: 83 },
+    vitals: { lcp: 4.6, inp: 540, cls: 0.28 },
+    seoChecklist: [
+      { name: "Title tag", status: "warn", detail: "71 chars — truncated in SERPs; trim to under 60." },
+      { name: "Meta description", status: "pass", detail: "Present with city + service keywords." },
+      { name: "Single H1", status: "fail", detail: "Three <h1> elements found on the homepage." },
+      { name: "Image alt coverage", status: "fail", detail: "Only 6 of 34 images have alt text (18%)." },
+      { name: "Canonical tag", status: "warn", detail: "Missing on /services subpages." },
+      { name: "Robots & sitemap", status: "warn", detail: "sitemap.xml exists but is 8 months stale." },
+      { name: "Structured data", status: "fail", detail: "No LocalBusiness or Dentist schema — critical for local SEO." },
+      { name: "Open Graph tags", status: "fail", detail: "No Open Graph tags; poor social link previews." },
+      { name: "HTTPS", status: "pass", detail: "Valid TLS certificate, no mixed content." },
+      { name: "Mobile-friendly", status: "fail", detail: "Layout shifts and overflow at 360px width." },
+    ],
+    keywords: [
+      { keyword: "dentist near me", position: 18, change: 1, volume: 90500, url: "/" },
+      { keyword: "teeth whitening portland", position: 12, change: 3, volume: 2400, url: "/services/whitening" },
+      { keyword: "emergency dentist portland", position: 24, change: -5, volume: 3600, url: "/emergency" },
+      { keyword: "invisalign cost", position: 31, change: 2, volume: 18100, url: "/services/invisalign" },
+      { keyword: "family dentist portland or", position: 9, change: 4, volume: 1300, url: "/" },
+      { keyword: "dental implants near me", position: 27, change: -2, volume: 6600, url: "/services/implants" },
+      { keyword: "pediatric dentist portland", position: 14, change: 0, volume: 1600, url: "/services/pediatric" },
+      { keyword: "root canal cost", position: 38, change: 1, volume: 8100, url: "/services/root-canal" },
+      { keyword: "cosmetic dentistry portland", position: 16, change: 2, volume: 880, url: "/services/cosmetic" },
+      { keyword: "wisdom teeth removal", position: 29, change: -3, volume: 12100, url: "/services/extractions" },
+    ],
+    issues: [
+      { severity: "critical", title: "No LocalBusiness structured data", impact: "Without Dentist/LocalBusiness schema, Google can't reliably populate the knowledge panel, hours, or map pack — the #1 local-SEO win." },
+      { severity: "critical", title: "Performance score is 48 (poor)", impact: "LCP 4.6s and INP 540ms fail Core Web Vitals. An unoptimized hero video and blocking fonts are the main culprits." },
+      { severity: "critical", title: "Cumulative Layout Shift of 0.28", impact: "Ads and late-loading images push content down, failing the 0.25 threshold and frustrating mobile visitors." },
+      { severity: "warning", title: "28 images missing alt text", impact: "Severely limits accessibility for screen-reader users and forfeits image-search traffic." },
+      { severity: "warning", title: "Multiple H1 tags & stale sitemap", impact: "Three H1s dilute topical focus; an 8-month-old sitemap delays indexing of new service pages." },
+    ],
+  },
+];
+
+export const VITALS_META = {
+  lcp: {
+    label: "LCP",
+    full: "Largest Contentful Paint",
+    unit: "s",
+    good: 2.5,
+    ni: 4.0,
+    max: 6.0,
+    format: (v) => `${v.toFixed(1)}s`,
+  },
+  inp: {
+    label: "INP",
+    full: "Interaction to Next Paint",
+    unit: "ms",
+    good: 200,
+    ni: 500,
+    max: 800,
+    format: (v) => `${v}ms`,
+  },
+  cls: {
+    label: "CLS",
+    full: "Cumulative Layout Shift",
+    unit: "",
+    good: 0.1,
+    ni: 0.25,
+    max: 0.4,
+    format: (v) => v.toFixed(2),
+  },
+};
+
+export function vitalStatus(key, value) {
+  const m = VITALS_META[key];
+  if (value <= m.good) return "good";
+  if (value <= m.ni) return "ni";
+  return "fail";
+}
